@@ -4,18 +4,22 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.domain.ResponseResult;
+import com.example.domain.constants.SystemConstants;
 import com.example.domain.entity.Article;
 import com.example.domain.entity.Comment;
 import com.example.domain.entity.User;
 import com.example.domain.utils.BeanCopyUtils;
 import com.example.domain.vo.CommentVo;
 import com.example.domain.vo.PageVo;
+import com.example.enums.AppHttpCodeEnum;
+import com.example.exception.SystemException;
 import com.example.mapper.CommentMapper;
 import com.example.service.ArticleService;
 import com.example.service.CommentService;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 @Service("commentService")
@@ -41,6 +45,15 @@ public class commentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
             commentVo.setChildren(commentVoList);
         }
         return ResponseResult.okResult(new PageVo(commentVos, page.getTotal()));
+    }
+
+    @Override
+    public ResponseResult addComment(Comment comment) {
+        if (!StringUtils.hasText(comment.getContent())) {
+            throw new SystemException(AppHttpCodeEnum.CONTENT_NOT_NULL);
+        }
+        save(comment);
+        return ResponseResult.okResult();
     }
 
     private List<CommentVo> getChildren(Long id) {
