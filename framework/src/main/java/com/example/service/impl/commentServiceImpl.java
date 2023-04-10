@@ -27,10 +27,10 @@ public class commentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
     @Autowired
     private UserService userService;
     @Override
-    public ResponseResult commentList(Long articleId, Integer pageNum, Integer pageSize) {
+    public ResponseResult commentList(String commentType, Long articleId, Integer pageNum, Integer pageSize) {
         LambdaQueryWrapper<Comment> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         // 相当于把articleId和rootId当作sql查询条件查询出符合条件的结果
-        lambdaQueryWrapper.eq(Comment::getArticleId, articleId);
+        lambdaQueryWrapper.eq(SystemConstants.ARTICLE_COMMENT.equals(commentType), Comment::getArticleId, articleId);
         lambdaQueryWrapper.eq(Comment::getRootId, -1);
         // 分页查询
         Page<Comment> page = new Page<>(pageNum, pageSize);

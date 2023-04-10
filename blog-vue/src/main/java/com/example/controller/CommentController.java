@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.domain.ResponseResult;
+import com.example.domain.constants.SystemConstants;
 import com.example.domain.entity.Comment;
 import com.example.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,18 @@ public class CommentController {
     private CommentService commentService;
     @GetMapping ("/commentList")
     public ResponseResult commentList(Long articleId, Integer pageNum, Integer pageSize) {
-        return commentService.commentList(articleId, pageNum, pageSize);
+        return commentService.commentList(SystemConstants.ARTICLE_COMMENT, articleId, pageNum, pageSize);
+    }
+    @GetMapping("/linkCommentList")
+    public ResponseResult linkCommentList(Integer pageNum, Integer pageSize) {
+        return commentService.commentList(SystemConstants.LINK_COMMENT, null, pageNum, pageSize);
     }
 
     @PostMapping
     public ResponseResult addComment(@RequestBody Comment comment) {
         return commentService.addComment(comment);
     }
+
+
 
 }
