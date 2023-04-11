@@ -10,6 +10,7 @@
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/Main.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/domain/vo/CommentVo.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/handler/security/AccessDeniedHandlerImpl.java
+/Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/domain/utils/SecurityUtils.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/domain/vo/ArticleListVo.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/mapper/LinkMapper.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/config/WebConfig.java
@@ -30,6 +31,7 @@
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/domain/entity/Link.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/service/CommentService.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/mapper/UserMapper.java
+/Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/handler/mybatisplus/MyMetaObjectHandler.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/domain/entity/Category.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/domain/utils/WebUtils.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/framework/src/main/java/com/example/config/FastJsonRedisSerializer.java
