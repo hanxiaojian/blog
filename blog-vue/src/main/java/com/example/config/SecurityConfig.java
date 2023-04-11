@@ -42,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 以下接口需要登录认证才可以访问
                 .antMatchers("/loginout").authenticated()
                 .antMatchers("/user/userInfo").authenticated()
+                .antMatchers("/upload").authenticated()
 //                .antMatchers("/link/getAllLink").authenticated()
                 // 除上面外的所有请求全部不需要认证即可访问
                 .anyRequest().permitAll();

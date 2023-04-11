@@ -1,6 +1,7 @@
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/controller/ArticleController.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/controller/UserController.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/filter/JwtAuthenticationTokenFilter.java
+/Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/controller/UploadController.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/BlogVueApplication.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/config/SecurityConfig.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/controller/CommentController.java

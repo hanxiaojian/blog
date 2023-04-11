@@ -19,3 +19,7 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
       id-type: auto
+oss:
+  accessKey: NIDh57dwj_gvQkzrWR-JDBsfxdW3I4totiY1GXdS
+  secretKey: o9AaRPeg47C5KBqtCYyIN45ATnVE9BWtokWpuQXl
+  bucket: hxj-space
