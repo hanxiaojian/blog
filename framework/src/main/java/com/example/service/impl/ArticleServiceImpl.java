@@ -8,6 +8,7 @@ import com.example.domain.constants.SystemConstants;
 import com.example.domain.entity.Article;
 import com.example.domain.entity.Category;
 import com.example.domain.utils.BeanCopyUtils;
+import com.example.domain.utils.RedisCache;
 import com.example.domain.vo.ArticleDetailVo;
 import com.example.domain.vo.ArticleListVo;
 import com.example.domain.vo.HotArticleVo;
@@ -37,6 +38,8 @@ import static com.example.domain.constants.SystemConstants.ARTICLE_STATUS_NORMAL
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements ArticleService {
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private RedisCache redisCache;
     @Override
     public ResponseResult hotArticleList() {
         LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
@@ -88,11 +91,22 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Override
     public ResponseResult getArticleDetail(Long id) {
         Article article = getById(id);
+        // 从redis中读取文章浏览量
+        Integer value = redisCache.getCacheMapValue("article:viewcount", id.toString());
+        article.setViewCount(value.longValue());
+
         ArticleDetailVo articleDetailVo = BeanCopyUtils.beanCopy(article, ArticleDetailVo.class);
         // 通过分类ID找分类名称
         Long categoryId = article.getCategoryId();
         articleDetailVo.setCategoryName(categoryService.getById(categoryId).getName());
         return ResponseResult.okResult(articleDetailVo);
+    }
+
+    @Override
+    public ResponseResult updateViewCount(Long id) {
+        // 更新redis值
+        redisCache.incrementCacheMapValue("article:viewCount", id.toString(),1);
+        return ResponseResult.okResult();
     }
 
 }
