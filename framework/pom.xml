@@ -20,6 +20,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+<!--           optional 代表当前项目对该库有依赖，但是不会传递给该项目的子项目-->
             <optional>true</optional>
         </dependency>
         <!--junit-->
