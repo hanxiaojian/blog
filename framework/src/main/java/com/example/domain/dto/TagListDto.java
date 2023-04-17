@@ -1,0 +1,17 @@
+package com.example.domain.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * @Author：hxj
+ * @Date：2023/4/17 21:56
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class TagListDto {
+    private String name;
+    private String remark;
+}
