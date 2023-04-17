@@ -71,4 +71,9 @@ public class LoginController {
         return ResponseResult.okResult(new RoutersVo(menus));
     }
 
+    @PostMapping("/user/loginOut")
+    public ResponseResult loginOut() {
+        return loginService.loginOut();
+    }
+
 }

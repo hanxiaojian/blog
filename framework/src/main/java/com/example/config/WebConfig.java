@@ -35,7 +35,8 @@ public class WebConfig implements WebMvcConfigurer {
                 // 跨域允许时间
                 .maxAge(3600);
     }
-    @Bean//使用@Bean注入fastJsonHttpMessageConvert
+    //使用@Bean注入fastJsonHttpMessageConvert
+    @Bean
     public HttpMessageConverter fastJsonHttpMessageConverters() {
         //1.需要定义一个Convert转换消息的对象
         FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();

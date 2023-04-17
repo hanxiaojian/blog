@@ -5,6 +5,7 @@ import com.example.domain.entity.LoginUser;
 import com.example.domain.entity.User;
 import com.example.domain.utils.JwtUtil;
 import com.example.domain.utils.RedisCache;
+import com.example.domain.utils.SecurityUtils;
 import com.example.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -31,15 +32,17 @@ public class SystemLoginServiceImpl implements LoginService {
 
     @Override
     public ResponseResult login(User user) {
+        // 认证帐号和密码
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUserName(),user.getPassword());
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         //判断是否认证通过
         if(Objects.isNull(authenticate)){
             throw new RuntimeException("用户名或密码错误");
         }
-        //获取userid 生成token
+        //获取userid
         LoginUser loginUser = (LoginUser) authenticate.getPrincipal();
         String userId = loginUser.getUser().getId().toString();
+        // 生成对应的唯一token
         String jwt = JwtUtil.createJWT(userId);
         //把用户信息存入redis
         redisCache.setCacheObject("login:"+userId,loginUser);
@@ -48,5 +51,14 @@ public class SystemLoginServiceImpl implements LoginService {
         Map<String,String> map = new HashMap<>(16);
         map.put("token",jwt);
         return ResponseResult.okResult(map);
+    }
+
+    @Override
+    public ResponseResult loginOut() {
+        // 获取登录用户ID
+        Long id = SecurityUtils.getUserId();
+        // 删除redis中的token
+        redisCache.deleteObject("login:" + id);
+        return ResponseResult.okResult();
     }
 }
