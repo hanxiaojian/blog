@@ -1,0 +1,16 @@
+package service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.domain.entity.Role;
+
+
+/**
+ * 角色信息表(Role)表服务接口
+ *
+ * @author hanxiaojian
+ * @since 2023-04-15 17:51:16
+ */
+public interface RoleService extends IService<Role> {
+
+}
+

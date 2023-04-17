@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 配置MybatisPlus分页拦截器
+ * @author hxj
  */
 @Configuration
 public class MBatisPlusConfig {

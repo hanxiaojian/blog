@@ -27,7 +27,6 @@ import java.util.Date;
 public class Comment {
     @TableId
     private Long id;
-
     //评论类型（0代表文章评论，1代表友链评论）
     @ApiModelProperty(notes = "评论类型（0代表文章评论，1代表友链评论）")
     private String type;
@@ -51,8 +50,5 @@ public class Comment {
     private Date updateTime;
     //删除标志（0代表未删除，1代表已删除）
     private Integer delFlag;
-
-
-
 }
 

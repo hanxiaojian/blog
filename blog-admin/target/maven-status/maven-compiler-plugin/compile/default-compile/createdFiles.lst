@@ -1,1 +1,5 @@
+com/example/filter/JwtAuthenticationTokenFilter.class
+com/example/controller/TagController.class
 com/example/BlogAdminApplication.class
+com/example/config/SecurityConfig.class
+com/example/controller/LoginController.class
