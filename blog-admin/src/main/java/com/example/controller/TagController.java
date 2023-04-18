@@ -4,9 +4,7 @@ import com.example.domain.ResponseResult;
 import com.example.domain.dto.TagListDto;
 import com.example.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author：hanxiaojian
@@ -21,5 +19,10 @@ public class TagController {
     @GetMapping("/list")
     public ResponseResult list(Integer pageNum, Integer pageSize, TagListDto tagListDto){
         return tagService.pageTagList(pageNum,pageSize,tagListDto);
+    }
+
+    @PostMapping()
+    public ResponseResult addTag(@RequestBody TagListDto tagListDto) {
+        return tagService.addTag(tagListDto);
     }
 }

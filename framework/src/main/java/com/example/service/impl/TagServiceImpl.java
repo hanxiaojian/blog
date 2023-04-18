@@ -38,5 +38,15 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagSe
         long total = page.getTotal();
         return ResponseResult.okResult(new PageVo(list, total));
     }
+
+    @Override
+    public ResponseResult addTag(TagListDto tagListDto) {
+        Tag tag = new Tag();
+        tag.setName(tagListDto.getName());
+        tag.setRemark(tagListDto.getRemark());
+        // 保存数据
+        save(tag);
+        return ResponseResult.okResult();
+    }
 }
 
