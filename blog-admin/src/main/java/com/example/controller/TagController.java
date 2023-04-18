@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.domain.ResponseResult;
 import com.example.domain.dto.TagListDto;
+import com.example.domain.vo.TagVo;
 import com.example.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,5 +30,15 @@ public class TagController {
     @DeleteMapping ("/{id}")
     public ResponseResult delTag(@PathVariable("id") Long id) {
         return tagService.delTag(id);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseResult getTag(@PathVariable("id") Long id) {
+        return tagService.getTag(id);
+    }
+
+    @PutMapping()
+    public ResponseResult modifyTag(@RequestBody TagVo tagVo) {
+        return tagService.modifyTag(tagVo);
     }
 }

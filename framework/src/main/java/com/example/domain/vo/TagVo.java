@@ -1,0 +1,18 @@
+package com.example.domain.vo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * @Author：hxj
+ * @Date：2023/4/18 16:30
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class TagVo {
+    private Long id;
+    private String name;
+    private String remark;
+}

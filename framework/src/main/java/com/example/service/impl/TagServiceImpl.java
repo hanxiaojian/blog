@@ -7,9 +7,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.domain.ResponseResult;
 import com.example.domain.dto.TagListDto;
 import com.example.domain.entity.Tag;
+import com.example.domain.utils.BeanCopyUtils;
 import com.example.domain.vo.PageVo;
+import com.example.domain.vo.TagVo;
 import com.example.mapper.TagMapper;
 import com.example.service.TagService;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -53,6 +56,24 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagSe
     public ResponseResult delTag(Long id) {
         // 根据标签ID删除数据
         removeById(id);
+        return ResponseResult.okResult();
+    }
+
+    @Override
+    public ResponseResult getTag(Long id) {
+        Tag tag = getById(id);
+        PageVo pageVo = BeanCopyUtils.beanCopy(tag, PageVo.class);
+        return ResponseResult.okResult(pageVo);
+    }
+
+    @Override
+    public ResponseResult modifyTag(TagVo tagVo) {
+        // 先按照标签ID查询出对应的信息
+        LambdaQueryWrapper<Tag> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(Tag::getId, tagVo.getId());
+        Tag tag = BeanCopyUtils.beanCopy(tagVo, Tag.class);
+        // 对结果进行修改
+        update(tag, lambdaQueryWrapper);
         return ResponseResult.okResult();
     }
 }
