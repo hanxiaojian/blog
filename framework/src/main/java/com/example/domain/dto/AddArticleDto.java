@@ -1,25 +1,21 @@
-package com.example.domain.entity;
+package com.example.domain.dto;
 
-import java.util.Date;
-
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
+import java.util.List;
+
 /**
- * (Blog)表实体类
- *
- * @author hanxiaojian
- * @since 2023-03-26 17:40:55
+ * @Author：hxj
+ * @Date：2023/4/19 15:08
  */
-@SuppressWarnings("serial")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Article {
+public class AddArticleDto {
     private Long id;
     // 文章标题
     private String title;
@@ -45,20 +41,5 @@ public class Article {
     private Long viewCount;
     // 是否允许评论：1是 0否
     private String isComment;
-    @TableField(fill = FieldFill.INSERT)
-    private Long createBy;
-    @TableField(fill = FieldFill.INSERT)
-    private Date createTime;
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Long updateBy;
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date updateTime;
-    // 删除标志：0未删除 1已删除
-    private Integer delFlag;
-
-    public Article(Long id, long viewCount) {
-        this.id = id;
-        this.viewCount = viewCount;
-    }
+    private List<Long> tags;
 }
-

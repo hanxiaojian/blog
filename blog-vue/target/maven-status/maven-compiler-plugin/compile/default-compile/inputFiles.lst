@@ -1,7 +1,5 @@
-/Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/service/RoleService.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/controller/UserController.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/job/UpdateViewCountJob.java
-/Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/mapper/RoleMapper.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/controller/CommentController.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/controller/CategoryController.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/controller/BlogLoginController.java
@@ -12,6 +10,4 @@
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/controller/UploadController.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/BlogVueApplication.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/config/SecurityConfig.java
-/Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/entity/Role.java
-/Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/service/impl/RoleServiceImpl.java
 /Users/hxj/Documents/Java/IDEAProject/Blog/blog-vue/src/main/java/com/example/config/SwaggerConfig.java

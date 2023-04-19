@@ -1,5 +1,9 @@
 package com.example.enums;
 
+/**
+ * @author hxj
+ */
+
 public enum AppHttpCodeEnum {
     SUCCESS(200, "操作成功"),
     NEED_LOGIN(401, "需要登录后操作"),
@@ -21,7 +25,9 @@ public enum AppHttpCodeEnum {
 
     EMAIL_NOT_NULL(511, "邮箱不能为空"),
 
-    NICKNAME_EXIST(512, "昵称已存在");
+    NICKNAME_EXIST(512, "昵称已存在"),
+
+    EMAIL_UPLOAD_FAIL(513, "邮件上传失败");
     int code;
     String msg;
 
@@ -37,9 +43,5 @@ public enum AppHttpCodeEnum {
     public String getMsg() {
         return msg;
     }
-
-
-
-
 
 }

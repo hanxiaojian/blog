@@ -10,8 +10,11 @@ com/example/service/impl/UserDatailsServiceImpl.class
 com/example/domain/entity/Tag.class
 com/example/handler/mybatisplus/MyMetaObjectHandler.class
 com/example/domain/utils/RedisCache.class
+com/example/domain/entity/ArticleTag.class
 com/example/config/FastJsonRedisSerializer.class
 com/example/domain/utils/BeanCopyUtils.class
+com/example/mapper/ArticleTagMapper.class
+com/example/domain/dto/AddArticleDto.class
 com/example/domain/vo/ArticleListVo.class
 com/example/service/impl/SystemLoginServiceImpl.class
 com/example/domain/entity/Comment.class
@@ -27,12 +30,14 @@ com/example/domain/constants/SystemConstants.class
 com/example/exception/SystemException.class
 com/example/service/CategoryService.class
 com/example/service/LoginService.class
+com/example/service/impl/ArticleTagServiceImpl.class
 com/example/domain/entity/Link.class
 com/example/domain/vo/HotArticleVo.class
 com/example/config/WebConfig.class
 com/example/enums/AppHttpCodeEnum.class
 com/example/aspect/LogAspect.class
 com/example/service/impl/commentServiceImpl.class
+com/example/service/ArticleTagService.class
 com/example/domain/entity/Category.class
 com/example/domain/ResponseResult.class
 com/example/domain/vo/RoutersVo.class
