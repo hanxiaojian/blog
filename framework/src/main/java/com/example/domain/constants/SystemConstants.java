@@ -1,5 +1,8 @@
 package com.example.domain.constants;
 
+/**
+ * @author hxj
+ */
 public class SystemConstants {
     /**
      *  文章是草稿
