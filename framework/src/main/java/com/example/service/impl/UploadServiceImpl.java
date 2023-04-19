@@ -21,6 +21,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
+/**
+ * @author hxj
+ */
 @Service
 @Data
 @ConfigurationProperties(prefix = "oss")

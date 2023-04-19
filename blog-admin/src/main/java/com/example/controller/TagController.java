@@ -7,6 +7,9 @@ import com.example.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Author：hanxiaojian
  * @Date：2023/4/15 14:42
@@ -40,5 +43,11 @@ public class TagController {
     @PutMapping()
     public ResponseResult modifyTag(@RequestBody TagVo tagVo) {
         return tagService.modifyTag(tagVo);
+    }
+
+    @GetMapping("/listAllTag")
+    public ResponseResult listAllTag() {
+        List<TagVo> list = tagService.listAllTag();
+        return ResponseResult.okResult(list);
     }
 }
