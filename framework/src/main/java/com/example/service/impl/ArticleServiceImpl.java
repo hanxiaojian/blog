@@ -130,8 +130,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     public ResponseResult getArticleList(Integer pageNum, Integer pageSize, GetArticleDto getArticleDto) {
         // 查询
         LambdaQueryWrapper<Article> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(Article::getTitle, getArticleDto.getTitle());
-        lambdaQueryWrapper.eq(Article::getSummary, getArticleDto.getSummary());
+        lambdaQueryWrapper.like(Article::getTitle, getArticleDto.getTitle());
+        lambdaQueryWrapper.like(Article::getSummary, getArticleDto.getSummary());
         // 分页
         Page<Article> page = new Page<>(pageNum, pageSize);
         page(page, lambdaQueryWrapper);
