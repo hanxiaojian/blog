@@ -3,6 +3,7 @@ package com.example.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.domain.ResponseResult;
 import com.example.domain.dto.AddArticleDto;
+import com.example.domain.dto.GetArticleDto;
 import com.example.domain.entity.Article;
 
 /**
@@ -22,5 +23,15 @@ public interface ArticleService extends IService<Article> {
     ResponseResult updateViewCount(Long id);
 
     ResponseResult addArticle(AddArticleDto addArticleDto);
+
+
+    /**
+     * 根据文章标题和摘要分页查询
+     * @param pageNum
+     * @param pageSize
+     * @param getArticleDto
+     * @return
+     */
+    ResponseResult getArticleList(Integer pageNum, Integer pageSize, GetArticleDto getArticleDto);
 }
 

@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.domain.ResponseResult;
-import com.example.domain.constants.SystemConstants;
 import com.example.domain.dto.AddArticleDto;
+import com.example.domain.dto.GetArticleDto;
 import com.example.domain.entity.Article;
 import com.example.domain.entity.ArticleTag;
 import com.example.domain.entity.Category;
@@ -15,17 +15,14 @@ import com.example.domain.vo.ArticleDetailVo;
 import com.example.domain.vo.ArticleListVo;
 import com.example.domain.vo.HotArticleVo;
 import com.example.domain.vo.PageVo;
-import com.example.enums.AppHttpCodeEnum;
 import com.example.mapper.ArticleMapper;
 import com.example.service.ArticleService;
 import com.example.service.ArticleTagService;
 import com.example.service.CategoryService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -127,6 +124,19 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         // 建立文章与标签的关联
         articleTagService.saveBatch(collect);
         return ResponseResult.okResult();
+    }
+
+    @Override
+    public ResponseResult getArticleList(Integer pageNum, Integer pageSize, GetArticleDto getArticleDto) {
+        // 查询
+        LambdaQueryWrapper<Article> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(Article::getTitle, getArticleDto.getTitle());
+        lambdaQueryWrapper.eq(Article::getSummary, getArticleDto.getSummary());
+        // 分页
+        Page<Article> page = new Page<>(pageNum, pageSize);
+        page(page, lambdaQueryWrapper);
+        // 返回
+        return ResponseResult.okResult(new PageVo(page.getRecords(), page.getTotal()));
     }
 
 }
