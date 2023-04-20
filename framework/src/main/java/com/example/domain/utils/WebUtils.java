@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+/**
+ * @author hxj
+ */
 public class WebUtils
 {
     /**

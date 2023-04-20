@@ -18,6 +18,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
+/**
+ * @author hxj
+ */
 @Service
 public class BlogLoginServiceImpl implements BlogLoginService {
     @Autowired
